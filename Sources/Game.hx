@@ -28,7 +28,7 @@ class Game
 		
 		chooseScene();
 		
-		#if sys_windows
+		#if (sys_windows || sys_linux || sys_osx)
 		var k = Keyboard.get();
 		k.notify(keyDown, null);
 		
@@ -39,11 +39,12 @@ class Game
 	
 	function chooseScene()
 	{
-		switch(rndi(3))
+		switch(rndi(4))
 		{
 			case 0: scene = new FourPoints();
 			case 1: scene = new Triangles();
 			case 2: scene = new FourPaths();
+			case 3: scene = new FourPathsNoCollision();
 		}		
 	}
 	
